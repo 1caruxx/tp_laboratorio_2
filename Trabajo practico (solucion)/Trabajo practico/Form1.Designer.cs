@@ -38,9 +38,9 @@
             // 
             // btnOperar
             // 
-            this.btnOperar.Location = new System.Drawing.Point(174, 208);
+            this.btnOperar.Location = new System.Drawing.Point(145, 119);
             this.btnOperar.Name = "btnOperar";
-            this.btnOperar.Size = new System.Drawing.Size(75, 23);
+            this.btnOperar.Size = new System.Drawing.Size(56, 34);
             this.btnOperar.TabIndex = 0;
             this.btnOperar.Text = "=";
             this.btnOperar.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(26, 197);
+            this.btnLimpiar.Location = new System.Drawing.Point(50, 119);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(57, 34);
             this.btnLimpiar.TabIndex = 1;
             this.btnLimpiar.Text = "CC";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -59,43 +59,49 @@
             // cmbOperacion
             // 
             this.cmbOperacion.FormattingEnabled = true;
-            this.cmbOperacion.Location = new System.Drawing.Point(72, 91);
+            this.cmbOperacion.Items.AddRange(new object[] {
+            "+",
+            "-",
+            "*",
+            "/"});
+            this.cmbOperacion.Location = new System.Drawing.Point(12, 38);
             this.cmbOperacion.Name = "cmbOperacion";
-            this.cmbOperacion.Size = new System.Drawing.Size(121, 21);
+            this.cmbOperacion.Size = new System.Drawing.Size(44, 21);
             this.cmbOperacion.TabIndex = 2;
             this.cmbOperacion.SelectedIndexChanged += new System.EventHandler(this.cmbOperacion_SelectedIndexChanged);
             // 
             // txtNumero2
             // 
-            this.txtNumero2.Location = new System.Drawing.Point(149, 118);
+            this.txtNumero2.Location = new System.Drawing.Point(12, 65);
             this.txtNumero2.Name = "txtNumero2";
-            this.txtNumero2.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero2.Size = new System.Drawing.Size(123, 20);
             this.txtNumero2.TabIndex = 3;
             this.txtNumero2.TextChanged += new System.EventHandler(this.txtNumero2_TextChanged);
             // 
             // txtNumero1
             // 
-            this.txtNumero1.Location = new System.Drawing.Point(12, 118);
+            this.txtNumero1.Location = new System.Drawing.Point(12, 12);
             this.txtNumero1.Name = "txtNumero1";
-            this.txtNumero1.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero1.Size = new System.Drawing.Size(123, 20);
             this.txtNumero1.TabIndex = 4;
             this.txtNumero1.TextChanged += new System.EventHandler(this.txtNumero1_TextChanged);
             // 
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(131, 174);
+            this.lblResultado.Location = new System.Drawing.Point(12, 88);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(35, 13);
+            this.lblResultado.Size = new System.Drawing.Size(58, 13);
             this.lblResultado.TabIndex = 5;
-            this.lblResultado.Text = "label1";
+            this.lblResultado.Text = "Resultado:";
             this.lblResultado.Click += new System.EventHandler(this.lblResultado_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ClientSize = new System.Drawing.Size(259, 165);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.txtNumero1);
             this.Controls.Add(this.txtNumero2);
@@ -103,7 +109,7 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnOperar);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculadora";
             this.ResumeLayout(false);
             this.PerformLayout();
 
