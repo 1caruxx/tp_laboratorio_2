@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.BackColor = System.Drawing.Color.Fuchsia;
             this.ClientSize = new System.Drawing.Size(259, 165);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.txtNumero1);
@@ -109,7 +109,7 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnOperar);
             this.Name = "Form1";
-            this.Text = "Calculadora";
+            this.Text = "Ailin fea :3";
             this.ResumeLayout(false);
             this.PerformLayout();
 
