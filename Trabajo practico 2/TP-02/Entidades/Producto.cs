@@ -55,18 +55,6 @@ namespace Entidades_2017
             return sb.ToString();
         }
 
-        /*protected static explicit operator string(Producto p)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine("CODIGO DE BARRAS:  {0}\r\n", p._codigoDeBarras);
-            sb.AppendLine("MARCA          : {0}\r\n", p._marca.ToString());
-            sb.AppendLine("COLOR EMPAQUE  : {0}\r\n", p._colorPrimarioEmpaque.ToString());
-            sb.AppendLine("---------------------");
-
-            return sb.ToString();
-        }*/
-
         /// <summary>
         /// Dos productos son iguales si comparten el mismo código de barras
         /// </summary>
