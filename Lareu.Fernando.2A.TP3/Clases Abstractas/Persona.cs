@@ -39,14 +39,20 @@ namespace Clases_Abstractas
             get { return this._dni; }
             set
             {
-                if(Persona.ValidarDNI(this._nacionalidad , value) == 0)
+                if(Persona.ValidarDNI(this._nacionalidad, value) == 0)
                 {
-                    
                     throw new DniInvalidoException("DNI introducido invalido.");
                 }
                 else
                 {
-                    this._dni = value;
+                    if (Persona.ValidarDNI(this._nacionalidad, value) == -1)
+                    {
+                        throw new NacionalidadInvalidaException("La nacionalidad no se concide con el numero de DNI.");
+                    }
+                    else
+                    {
+                        this._dni = value;
+                    }
                 }
             }
         }
@@ -73,16 +79,22 @@ namespace Clases_Abstractas
         {
             set
             {
-                int datoValidado;
+                int datoValidado = Persona.ValidarDNI(this._nacionalidad, value);
 
-                if((datoValidado = Persona.ValidarDNI(this._nacionalidad , value)) == 0)
+                if(datoValidado == 0)
                 {
-                    
                     throw new DniInvalidoException("DNI introducido invalido.");
                 }
                 else
                 {
-                    this._dni = datoValidado; 
+                    if (datoValidado == -1)
+                    {
+                        throw new NacionalidadInvalidaException("La nacionalidad no se concide con el numero de DNI.");
+                    }
+                    else
+                    {
+                        this._dni = datoValidado;
+                    }
                 }
             }
         }
@@ -94,7 +106,7 @@ namespace Clases_Abstractas
         public Persona()
         {
             this._apellido = "Sin asignar";
-            this._nacionalidad = ENacionalidad.Extranjero;
+            //this._nacionalidad = ENacionalidad.Extranjero;
             this._nombre = "Sin asignar";
         }
 
@@ -107,12 +119,34 @@ namespace Clases_Abstractas
 
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad):this(nombre, apellido, nacionalidad)
         {
-            this.DNI = dni;
+            try
+            {
+                this.DNI = dni;
+            }
+            catch (DniInvalidoException excepcion)
+            {
+                throw new DniInvalidoException(excepcion);
+            }
+            catch (NacionalidadInvalidaException excepcion)
+            {
+                throw excepcion;
+            }
         }
 
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
-            this.StringToDNI = dni;
+            try
+            {
+                this.StringToDNI = dni;
+            }
+            catch (DniInvalidoException excepcion)
+            {
+                throw new DniInvalidoException(excepcion);
+            }
+            catch (NacionalidadInvalidaException excepcion)
+            {
+                throw excepcion;
+            }
         }
 
         #endregion
@@ -125,17 +159,24 @@ namespace Clases_Abstractas
             {
                 return 0;
             }
+            else
+            {
+                if (nacionalidad == ENacionalidad.Extranjero && dato < 89999999)
+                {
+                    return -1;
+                }
+            }
 
             return dato;
         }
 
         static int ValidarDNI(ENacionalidad nacionalidad, string dato)
         {
-            int entrada;
+            int datoValidado;
 
-            if(int.TryParse(dato , out entrada))
+            if(int.TryParse(dato , out datoValidado))
             {
-                return ValidarDNI(nacionalidad, entrada);
+                return ValidarDNI(nacionalidad, datoValidado);
             }
 
             return 0;
@@ -170,9 +211,9 @@ namespace Clases_Abstractas
 
             SB.Append("NOMBRE COMPLETO: " + this._apellido);
             SB.AppendLine(", " + this._nombre);
-            SB.AppendLine("DNI: " + this._dni);
             SB.AppendLine("NACIONALIDAD: " + this._nacionalidad);
-
+            SB.AppendLine("DNI: " + this._dni);
+            
             return SB.ToString();
         }
     }
