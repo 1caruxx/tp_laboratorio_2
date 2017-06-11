@@ -46,6 +46,10 @@
     <Compile Include="Xml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Clases Instanciables\Clases Instanciables.csproj">
+      <Project>{d84223c2-932a-44fa-b39d-1d261c19eaf4}</Project>
+      <Name>Clases Instanciables</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
       <Project>{846aa126-d17c-4410-b448-73e895c8be07}</Project>
       <Name>Excepciones</Name>

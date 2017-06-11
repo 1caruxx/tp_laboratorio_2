@@ -22,6 +22,10 @@ namespace EntidadesAbstractas
 
         #region Metodos
 
+        /// <summary>
+        /// Retorna los datos del universitario.
+        /// </summary>
+        /// <returns>Un string con todos los datos del universitario.</returns>
         protected virtual string MostrarDatos()
         {
             StringBuilder SB = new StringBuilder();
@@ -32,6 +36,11 @@ namespace EntidadesAbstractas
             return SB.ToString();
         }
 
+        /// <summary>
+        /// Verifica que el objeto que se le pasa como parametro sea del tipo universitario.
+        /// </summary>
+        /// <param name="obj">Un objeto de cualquier tipo.</param>
+        /// <returns>True en caso de que sea de tipo universitario o False en caso contrario.</returns>
         public override bool Equals(object obj)
         {
             return (obj is Universitario);

@@ -103,6 +103,9 @@ namespace EntidadesAbstractas
 
         #region Constructores
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Persona.
+        /// </summary>
         public Persona()
         {
             this._apellido = "Sin asignar";
@@ -110,6 +113,12 @@ namespace EntidadesAbstractas
             this._nombre = "Sin asignar";
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Persona asignando a sus atributos, los datos que se le pasan como parametro.
+        /// </summary>
+        /// <param name="nombre">El nombre de la persona.</param>
+        /// <param name="apellido">El apellido de la persona.</param>
+        /// <param name="nacionalidad">La nacionalidad de la persona.</param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Apellido = apellido;
@@ -117,6 +126,13 @@ namespace EntidadesAbstractas
             this.Nombre = nombre;
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Persona asignando a sus atributos, los datos que se le pasan como parametro.
+        /// </summary>
+        /// <param name="nombre">El nombre de la persona.</param>
+        /// <param name="apellido">El apellido de la persona.</param>
+        /// <param name="dni">El DNI de la persona.</param>
+        /// <param name="nacionalidad">La nacionalidad de la persona.</param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad):this(nombre, apellido, nacionalidad)
         {
             try
@@ -133,6 +149,13 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Persona asignando a sus atributos, los datos que se le pasan como parametro.
+        /// </summary>
+        /// <param name="nombre">El nombre de la persona.</param>
+        /// <param name="apellido">El apellido de la persona.</param>
+        /// <param name="dni">El DNI de la persona.</param>
+        /// <param name="nacionalidad">La nacionalidad de la persona.</param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
             try
@@ -153,6 +176,12 @@ namespace EntidadesAbstractas
 
         #region Validacion
 
+        /// <summary>
+        /// Valida que el numero que se le pasa como parametro sea mayor a 0 y menor a 90000000 en caso de que la nacionalidad sea argentina o que sea mayor a 89999999 si es extranjera.
+        /// </summary>
+        /// <param name="nacionalidad">La nacionalidad.</param>
+        /// <param name="dato">El DNI.</param>
+        /// <returns>0 si la nacionalidad es argentina y esta fuera de rango, -1 si la nacionalidad es extranjera y esta fuera de rango o el dato si esta dentro del rango.</returns>
         static int ValidarDNI(ENacionalidad nacionalidad , int dato)
         {
             if((nacionalidad == ENacionalidad.Argentino) && (dato < 1 || dato > 89999999))
@@ -170,6 +199,12 @@ namespace EntidadesAbstractas
             return dato;
         }
 
+        /// <summary>
+        /// Valida que el literal que se le pasa como parametro sea valido como numero y que sea mayor a 0 y menor a 90000000 en caso de que la nacionalidad sea argentina o que sea mayor a 89999999 si es extranjera.
+        /// </summary>
+        /// <param name="nacionalidad">La nacionalidad.</param>
+        /// <param name="dato">El DNI.</param>
+        /// <returns>El metodo ValidarDNI.</returns>
         static int ValidarDNI(ENacionalidad nacionalidad, string dato)
         {
             int datoValidado;
@@ -182,6 +217,11 @@ namespace EntidadesAbstractas
             return 0;
         }
 
+        /// <summary>
+        /// Valida que el String que se le pasa como parametro contenga caracteres validos para nombres y apellidos.
+        /// </summary>
+        /// <param name="dato">Un nombre o apellido.</param>
+        /// <returns>El String validado o la cadena "Invalido" en caso de que contenga caracteres no validos.</returns>
         static string ValidarNombreApellido(string dato)
         {
             bool esValido = true;
@@ -205,6 +245,10 @@ namespace EntidadesAbstractas
 
         #endregion
 
+        /// <summary>
+        /// Retorna los datos de la persona.
+        /// </summary>
+        /// <returns>Un String con todos los datos de la persona.</returns>
         public override string ToString()
         {
             StringBuilder SB = new StringBuilder();

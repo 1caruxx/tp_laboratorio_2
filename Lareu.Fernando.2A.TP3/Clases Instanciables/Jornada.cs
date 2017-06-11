@@ -38,11 +38,19 @@ namespace ClasesInstanciables
 
         #region Constructores
 
+        /// <summary>
+        /// Incializa una nueva instancia de la clase Jornada y su atributo _alumnos.
+        /// </summary>
         private Jornada()
         {
             this._alumnos = new List<Alumno>();
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Jornada asignando a sus atributos, los datos que se le pasan como parametro.
+        /// </summary>
+        /// <param name="clase">La clase de esa jornada.</param>
+        /// <param name="instructor">El profesor de esa jornada.</param>
         public Jornada(Universidad.EClases clase, Profesor instructor) :this()
         {
             this._clase = clase;
@@ -82,13 +90,18 @@ namespace ClasesInstanciables
 
         #region Metodos
 
+        /// <summary>
+        /// Retorna los datos del alumno.
+        /// </summary>
+        /// <returns>Un string con todos los datos de la jornada.</returns>
         public override string ToString()
         {
             StringBuilder SB = new StringBuilder();
 
             SB.AppendLine("JORNADA:");
             SB.Append("CLASE DE: " + this._clase);
-            SB.AppendLine(this._instructor.ToString());
+            SB.AppendLine(" " + this._instructor.ToString());
+            SB.AppendLine("ALUMNOS:");
 
             foreach (Alumno item in this._alumnos)
             {
@@ -100,6 +113,11 @@ namespace ClasesInstanciables
             return SB.ToString();
         }
 
+        /// <summary>
+        /// Guarda en un archivo de texto los datos de la jornada.
+        /// </summary>
+        /// <param name="jornada">Una jornada cuyos datos se desean guardar.</param>
+        /// <returns>True si no se produjo ninguna excepcion.</returns>
         public static bool Guardar(Jornada jornada)
         {
             try
@@ -117,6 +135,10 @@ namespace ClasesInstanciables
             return true;
         }
 
+        /// <summary>
+        /// Lee desde un archivo de texto los datos y los retorna en forma de String.
+        /// </summary>
+        /// <returns>El String con los datos del archivo de texto.</returns>
         public static string Leer()
         {
             StringBuilder SB = new StringBuilder();

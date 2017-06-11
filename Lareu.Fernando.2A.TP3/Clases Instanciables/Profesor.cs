@@ -14,17 +14,31 @@ namespace ClasesInstanciables
 
         #region Constructores
 
+        /// <summary>
+        /// Inicializa una nueva instantcia del atributo estatico _random.
+        /// </summary>
         static Profesor()
         {
             _random = new Random();
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Profesor y su atributo _clasesDelDia asignandole dos clases aleatorias generadas por el metodo _randomClases().
+        /// </summary>
         public Profesor()
         {
             this._clasesDelDia = new Queue<Universidad.EClases>();
             this._randomClases();
         }
 
+        /// <summary>
+        /// nicializa una nueva instancia de la clase Profesor y su atributo _clasesDelDia asignandole dos clases aleatorias generadas por el metodo _randomClases(). Asigna a sus atributos los datos que se le pasan como parametro.
+        /// </summary>
+        /// <param name="id">El legajo del profesor.</param>
+        /// <param name="nombre">El nombre del profesor.</param>
+        /// <param name="apellido">El apellido del profesor.</param>
+        /// <param name="dni">El DNI del profesor.</param>
+        /// <param name="nacionalidad">La nacionalidad del profesor.</param>
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad) : base(id,  nombre,  apellido,  dni,  nacionalidad)
         {
             this._clasesDelDia = new Queue<Universidad.EClases>();
@@ -35,23 +49,34 @@ namespace ClasesInstanciables
 
         #region Metodos
 
+        /// <summary>
+        /// Retorna los datos del profesor.
+        /// </summary>
+        /// <returns>Un string con todos los datos del profesor.</returns>
         protected override string MostrarDatos()
         {
             StringBuilder SB = new StringBuilder();
 
             SB.AppendLine(base.MostrarDatos());
             SB.AppendLine(this.ParticiparEnClase());
-            return base.MostrarDatos();
+            return SB.ToString();
         }
 
+        /// <summary>
+        /// Genera dos clases aleatorias y las asigna a la lista _clasesDelDia.
+        /// </summary>
         private void _randomClases()
         {
             for (int i = 0; i < 2; i++)
             {
-                this._clasesDelDia.Enqueue((Universidad.EClases)_random.Next(0, 2));
+                this._clasesDelDia.Enqueue((Universidad.EClases)_random.Next(0, 4));
             }
         }
 
+        /// <summary>
+        /// Retorna un String con las clases que puede dar el profesor.
+        /// </summary>
+        /// <returns>Un String con el literal "CLASES DEL DIA " al que se le concatena las clases que puede dar el profesor.</returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder SB = new StringBuilder();
@@ -66,6 +91,10 @@ namespace ClasesInstanciables
             return SB.ToString();
         }
 
+        /// <summary>
+        /// Hace publicos los datos del profesor.
+        /// </summary>
+        /// <returns>El metodo MostrarDatos()</returns>
         public override string ToString()
         {
             return this.MostrarDatos();

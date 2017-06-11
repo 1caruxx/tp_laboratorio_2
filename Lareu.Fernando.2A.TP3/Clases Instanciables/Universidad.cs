@@ -86,6 +86,9 @@ namespace ClasesInstanciables
 
         #endregion
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase Universidad asi como de sus atributos.
+        /// </summary>
         public Universidad()
         {
             this.alumnos = new List<Alumno>();
@@ -243,6 +246,11 @@ namespace ClasesInstanciables
 
         #region Metodos
 
+        /// <summary>
+        /// Retorna los datos de las jornadas de la universidad que se le pasa como parametro.
+        /// </summary>
+        /// <param name="gim">La universidad de la cual se quieren mostrar los datos.</param>
+        /// <returns>Un string con todos los datos de las jornadas de la universidad.</returns>
         private static string MostrarDatos(Universidad gim)
         {
             StringBuilder SB = new StringBuilder();
@@ -255,11 +263,20 @@ namespace ClasesInstanciables
             return SB.ToString();
         }
 
+        /// <summary>
+        /// Hace publicos los datos de las jornadas de la universidad.
+        /// </summary>
+        /// <returns>El metodo MostrarDatos()</returns>
         public override string ToString()
         {
             return MostrarDatos(this);
         }
 
+        /// <summary>
+        /// Serializa y guarda en un archivo con extension .xml los datos de una universidad que se le pasan como parametro.
+        /// </summary>
+        /// <param name="gim">La universidad de la cual se quieren serializar los datos.</param>
+        /// <returns>True si no se produjo ninguna excepcion.</returns>
         public static bool Guardar(Universidad gim)
         {
             XmlSerializer serializador = new XmlSerializer(typeof(Universidad));
@@ -273,13 +290,16 @@ namespace ClasesInstanciables
             }
             catch (Exception excepcion)
             {
-
                 throw new ArchivosException(excepcion);
             }
 
             return true;
         }
 
+        /// <summary>
+        /// Lee y desserializa los datos de un archivo de extension .xml y los retorna en forma de un objeto de tipo Univesidad.
+        /// </summary>
+        /// <returns>Un objeto de tipo Universidad con los datos extraidos del archivo .xml.</returns>
         public static Universidad Leer()
         {
             Universidad universidadAuxiliar;
@@ -294,7 +314,6 @@ namespace ClasesInstanciables
             }
             catch (Exception excepcion)
             {
-
                 throw new ArchivosException(excepcion);
             }
 
