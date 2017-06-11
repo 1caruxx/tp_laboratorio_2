@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Clases_Abstractas;
+using EntidadesAbstractas;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public sealed class Profesor : Universitario
     {

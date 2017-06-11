@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Excepciones;
 using System.IO;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public class Jornada
     {
@@ -97,7 +97,7 @@ namespace Clases_Instanciables
 
             SB.AppendLine("<------------------------------------------------->");
 
-            return base.ToString();
+            return SB.ToString();
         }
 
         public static bool Guardar(Jornada jornada)

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases Instanciables", "Clases Instanciables\Clases Instanciables.csproj", "{D84223C2-932A-44FA-B39D-1D261C19EAF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archivos.csproj", "{5FE59C50-826C-457A-9C73-3F0E33330B5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console Test", "Console Test\Console Test.csproj", "{3BC99202-C491-4E66-AACC-D057A5784903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{D84223C2-932A-44FA-B39D-1D261C19EAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D84223C2-932A-44FA-B39D-1D261C19EAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D84223C2-932A-44FA-B39D-1D261C19EAF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE59C50-826C-457A-9C73-3F0E33330B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE59C50-826C-457A-9C73-3F0E33330B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE59C50-826C-457A-9C73-3F0E33330B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE59C50-826C-457A-9C73-3F0E33330B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC99202-C491-4E66-AACC-D057A5784903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC99202-C491-4E66-AACC-D057A5784903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC99202-C491-4E66-AACC-D057A5784903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC99202-C491-4E66-AACC-D057A5784903}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
