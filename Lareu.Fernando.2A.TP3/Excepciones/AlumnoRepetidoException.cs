@@ -8,7 +8,9 @@ namespace Excepciones
 {
     public class AlumnoRepetidoException:Exception
     {
-        public AlumnoRepetidoException() : base() { }
-        public AlumnoRepetidoException(string message) : base(message) { }
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase AlumnoRepetidoException asignandole el mensaje de error "Alumno repetido.".
+        /// </summary>
+        public AlumnoRepetidoException() : base("Alumno repetido.") { }
     }
 }

@@ -77,7 +77,7 @@ namespace ClasesInstanciables
             {
                 if(j == a)
                 {
-                    throw new AlumnoRepetidoException("Alumno repetido.");
+                    throw new AlumnoRepetidoException();
                 }
             }
 
