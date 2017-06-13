@@ -22,6 +22,9 @@ namespace EntidadesAbstractas
 
         #region Propiedades
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _apellido validando que contenga caracteres validos.
+        /// </summary>
         public string Apellido
         {
             get { return this._apellido; }
@@ -34,6 +37,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _dni validando que este en un rango determinado segun el atributo _nacionalidad.
+        /// </summary>
         public int DNI
         {
             get { return this._dni; }
@@ -57,12 +63,18 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _nacionalidad.
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get { return this._nacionalidad; }
             set { this._nacionalidad = value; }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _nombre validando que contenga caracteres validos.
+        /// </summary>
         public string Nombre
         {
             get { return this._nombre; }
@@ -75,6 +87,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad de escritura que permite asignar el atributo _dni validando que los caracteres sean numeros y que este en un rango determinado segun el atributo _nacionalidad.
+        /// </summary>
         public string StringToDNI
         {
             set
@@ -109,7 +124,6 @@ namespace EntidadesAbstractas
         public Persona()
         {
             this._apellido = "Sin asignar";
-            //this._nacionalidad = ENacionalidad.Extranjero;
             this._nombre = "Sin asignar";
         }
 

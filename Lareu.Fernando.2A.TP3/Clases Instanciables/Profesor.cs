@@ -104,6 +104,12 @@ namespace ClasesInstanciables
 
         #region Operadores
 
+        /// <summary>
+        /// Un profesor sera igual a una clase si en su lista _clasesDelDia contiene la clase.
+        /// </summary>
+        /// <param name="i">Un profesor.</param>
+        /// <param name="clase">Una clase perteneciente al enumerado Universidad.EClases.</param>
+        /// <returns>Retornara True en caso de que el profesor sea igual a la clase, False en caso contrario.</returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
             foreach (Universidad.EClases item in i._clasesDelDia)
@@ -117,6 +123,12 @@ namespace ClasesInstanciables
             return false;
         }
 
+        /// <summary>
+        /// La negacion de la igualdad entre un profesor y una clase.
+        /// </summary>
+        /// <param name="i">Un profesor.</param>
+        /// <param name="clase">Una clase perteneciente al enumerado Universidad.EClases.</param>
+        /// <returns>Retornara True en caso de que el profesor sea diferente a la clase, False caso contrario.</returns>
         public static bool operator !=(Profesor i, Universidad.EClases clase)
         {
             return !(i == clase);

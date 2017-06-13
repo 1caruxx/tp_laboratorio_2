@@ -16,18 +16,27 @@ namespace ClasesInstanciables
 
         #region Propiedades
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar la instancia de la lista _alumnos.
+        /// </summary>
         public List<Alumno> Alumnos
         {
             get { return this._alumnos; }
             set { this._alumnos = value; }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _clase.
+        /// </summary>
         public Universidad.EClases Clase
         {
             get { return this._clase; }
             set { this._clase = value; }
         }
 
+        /// <summary>
+        /// Propiedad de lectura y escritura que permite retornar y asignar el atributo _instructor.
+        /// </summary>
         public Profesor Instructor
         {
             get { return this._instructor; }
@@ -61,16 +70,34 @@ namespace ClasesInstanciables
 
         #region Operadores
 
+        /// <summary>
+        /// Una jornada sera igual a un alumno si ese alumno es igual al atributo _clase de la jornada.
+        /// </summary>
+        /// <param name="j">Una jornada.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retornara True en caso de que la jornada sea igual al alumno, False en caso contrario.</returns>
         public static bool operator ==(Jornada j, Alumno a)
         {
             return (a == j._clase);
         }
 
+        /// <summary>
+        /// La negacion de la igualdad entre una jornada y un alumno.
+        /// </summary>
+        /// <param name="j">Una jornada.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retornara True en caso de que la jornada y el alumno sean diferentes, False caso contrario.</returns>
         public static bool operator !=(Jornada j, Alumno a)
         {
             return (a != j._clase);
         }
 
+        /// <summary>
+        /// Sobrecargar del operador + que permite agregar a un alumno a la lista _alumnos verificando que no este previamente cargado.
+        /// </summary>
+        /// <param name="j">Una jornada.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retorna la jornada que se le pasa como parametro con el alumno cargado en caso de que se haya podido hacerlo.</returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {
             foreach (Alumno item in j._alumnos)

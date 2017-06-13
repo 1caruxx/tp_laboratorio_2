@@ -98,6 +98,12 @@ namespace ClasesInstanciables
 
         #region Operadores
 
+        /// <summary>
+        /// Una universidad sera igual a un alumno si en su lista alumnos ya esta cargado.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retornara True en caso de que la universidad y el alumno sean iguales, False caso contrario.</returns>
         public static bool operator ==(Universidad g, Alumno a)
         {
             foreach (Universitario item in g.alumnos)
@@ -111,6 +117,12 @@ namespace ClasesInstanciables
             return false;
         }
 
+        /// <summary>
+        /// Una universidad sera igual a un profesor si ese profesor da clases en alguna jornada.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="i">Un profesor.</param>
+        /// <returns>Retornara True en caso de que la universidad y el profesor sean iguales, False caso contrario.</returns>
         public static bool operator ==(Universidad g, Profesor i)
         {
             foreach (Jornada item in g.jornadas)
@@ -124,6 +136,12 @@ namespace ClasesInstanciables
             return false;
         }
 
+        /// <summary>
+        /// Permite agregar una clase a la universidad, generando una Jornada con un profesor capaz de dar esa clase y una lista de alumnos que participen en ella.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="clase">Una clase.</param>
+        /// <returns>La universidad con la jornada aniadida.</returns>
         public static Universidad operator+(Universidad g, EClases clase)
         {
             Jornada jornada;
@@ -153,6 +171,12 @@ namespace ClasesInstanciables
             return g;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador + que permite agregar un alumno a la lista alumnos en caso de que no haya sido previamente cargado.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retornara la universidad con el alumno cargado.</returns>
         public static Universidad operator +(Universidad g, Alumno a)
         {
             if(g == a)
@@ -167,6 +191,12 @@ namespace ClasesInstanciables
             return g;
         }
 
+        /// <summary>
+        /// Sobrecargar del operador + que permite aniadir un profesor a la lista profesores en caso de que no haya sido prevviamente cargado.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="i">Un profesor.</param>
+        /// <returns>Retornara la universidad con el profesor cargado en caso de que se haya podido hacerlo.</returns>
         public static Universidad operator +(Universidad g, Profesor i)
         {
             foreach (Universitario item in g.profesores)
@@ -182,6 +212,12 @@ namespace ClasesInstanciables
             return g;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador == que retornara el primer profesor de la lista profesores capaz de dar la clase que se le pase como parametro.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="clase">Una clase.</param>
+        /// <returns>Retorna un profesor capaz de dar dicha clase.</returns>
         public static Profesor operator ==(Universidad g, EClases clase)
         {
             Profesor profesorAuxiliar = new Profesor();
@@ -207,16 +243,34 @@ namespace ClasesInstanciables
             return profesorAuxiliar;
         }
 
+        /// <summary>
+        /// Negacion de la igualdad entre una universidad y un alumno.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="a">Un alumno.</param>
+        /// <returns>Retornara True en caso de que la universidad y el alumno sean diferentes, True caso contrario.</returns>
         public static bool operator !=(Universidad g, Alumno a)
         {
             return !(g == a);
         }
 
+        /// <summary>
+        /// Negacion de la igualdad entre una universidad y un alumno.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="i">Un profesor.</param>
+        /// <returns>Retornara True en caso de que la universidad y el profesor sean diferentes, True caso contrario.</returns>
         public static bool operator !=(Universidad g, Profesor i)
         {
             return !(g == i);
         }
 
+        /// <summary>
+        /// Sobrecargar del operador != que retornara el primer profesor de la lista profesores que no sea capaz de dar la clase que se pasa como parametro.
+        /// </summary>
+        /// <param name="g">Una universidad.</param>
+        /// <param name="clase">Una clase.</param>
+        /// <returns>Retornara un profesor que no sea capaz de dar dicha clase.</returns>
         public static Profesor operator !=(Universidad g, EClases clase)
         {
             Profesor profesorAuxiliar = new Profesor();

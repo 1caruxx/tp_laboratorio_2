@@ -101,11 +101,23 @@ namespace ClasesInstanciables
 
         #region Operadores
 
+        /// <summary>
+        /// Un alumno sera igual a una clase si su atributo _estadoCuenta es diferente a Deudor y su atributo _claseQueToma es la misma clase que la que se esta comparando.
+        /// </summary>
+        /// <param name="a">Un alumno.</param>
+        /// <param name="clase">Una clase perteneciente al enumerado Universidad.EClases.</param>
+        /// <returns>Retornara True en caso de que el alumno y la clase sean iguales, False caso contrario.</returns>
         public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
             return (a._estadoCuenta != EEstadoCuenta.Deudor && a._claseQueToma==clase);
         }
 
+        /// <summary>
+        /// La negacion de la igualdad entre un alumno y una clase.
+        /// </summary>
+        /// <param name="a">Un alumno.</param>
+        /// <param name="clase">Una clase perteneciente al enumerado Universidad.EClases.</param>
+        /// <returns>Retornara True en caso de que el alumno sea diferente a la clase, False caso contrario.</returns>
         public static bool operator !=(Alumno a, Universidad.EClases clase)
         {
             return (a._claseQueToma != clase);
