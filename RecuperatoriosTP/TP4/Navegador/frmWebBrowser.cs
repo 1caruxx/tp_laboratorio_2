@@ -94,22 +94,29 @@ namespace Navegador
 
         private void btnIr_Click(object sender, EventArgs e)
         {
-            WebClient cliente = new WebClient();
-            Stream datos = cliente.OpenRead(this.txtUrl.Text);
-            Archivos.Texto archivo = new Archivos.Texto(frmHistorial.ARCHIVO_HISTORIAL);
-            StringBuilder SB = new StringBuilder();
-            string linea;
+            this.txtUrl.Text = this.txtUrl.Text.ToLower();
 
-            using (StreamReader lector = new StreamReader(datos))
+            if (!(this.txtUrl.Text.StartsWith("http://")))
             {
-                while ((linea = lector.ReadLine()) != null)
-                {
-                    SB.AppendLine(linea);
-                }
+                this.txtUrl.Text = "http://" + this.txtUrl.Text;
             }
 
-            this.rtxtHtmlCode.Text = SB.ToString();
-            archivo.guardar(this.txtUrl.Text);
+            try
+            {
+                Uri uri = new Uri(this.txtUrl.Text);
+                Descargador descargador = new Descargador(uri);
+                descargador.porcentageEvento += new ActualizadorDeProgreso(this.ProgresoDescarga);
+                descargador.resultadoEvento += new OperacionFinalizada(this.FinDescarga);
+
+                Thread hilo = new Thread(descargador.IniciarDescarga);
+                hilo.Start();
+
+                this.archivos.guardar(this.txtUrl.Text);
+            }
+            catch (Exception excepcion)
+            {
+                MessageBox.Show(excepcion.Message);
+            }
         }
 
         private void mostrarTodoElHistorialToolStripMenuItem_Click(object sender, EventArgs e)

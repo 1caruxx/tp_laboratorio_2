@@ -27,9 +27,9 @@ namespace Archivos
                     escritor.WriteLine(datos);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
             return true;
