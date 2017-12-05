@@ -19,10 +19,14 @@ Los lenguajes tratados fueron:
     </tbody>
 </table>
 
+## Profesor
+
+* [Octavio Villegas](https://github.com/octaviovillegas)
+
 ## Autor
 
 * Fernando Lareu - [1caruxx](https://github.com/1caruxx)
 
 # License
 
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/1caruxx/tp_laboratorio_2/blob/master/LICENSE) file for details.
